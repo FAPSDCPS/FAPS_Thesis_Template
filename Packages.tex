@@ -1,0 +1,63 @@
+
+\usepackage[english,german]{babel} 	% Sprachpaket
+% \usepackage[latin1]{inputenc} 		% Konvertierungspaket (Sprachen:Westeuropa)
+\usepackage[utf8]{inputenc} 		% joba Konvertierungspaket (Sprachen:Westeuropa)
+
+\usepackage[centertags]{amsmath}		% Mathepakete
+\usepackage{amssymb}
+\usepackage{array}
+
+\usepackage{eso-pic}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+
+\usepackage[absolute]{textpos}
+
+\usepackage[format=hang, font=footnotesize, labelfont=bf]{caption}  % Layout fuer Bildbeschriftung
+
+\usepackage{fancyhdr}	% Definition von Kopf- und Fusszeilen
+
+\usepackage{color}		% fuer farbige Texte
+
+\usepackage{calc}
+
+%\usepackage{tocstyle}	% Package fuer Layout des Inhaltsverzeichnisses
+\usepackage{tocloft}	% Package zum Bearbeiten des Layouts des Abbildungs- und Tabellenverzeichnisses
+\usepackage{titletoc}	% Package zum Bearbeiten des Layouts des Inhaltsverzeichnisses
+
+\normalsize
+
+%-----------------------------------------------------------------------------------------------------------%
+
+\usepackage{textcomp}
+
+\usepackage{subcaption}	% Subcaptions
+
+\usepackage{multirow}	% Multirow - Tabellen
+\usepackage{longtable}	% Lange Tabelle
+
+\usepackage{color}		% fuer Farben im allgemeinen
+\usepackage{colortbl}	% fuer die Hintergrundfarbe einzelner Zellen in Tabellen
+
+\usepackage{url}		% URL-Package
+
+\usepackage{ifthen}		% if then
+\usepackage{nomencl}	% Abkuerzungen und Verzeichnisse
+\usepackage{makeidx}	% Index erstellen
+
+\usepackage{blindtext}	% Lorem ipsum
+
+\usepackage[]{hyperref}	% Links usw.
+
+\usepackage{setspace}	% Zeilenabstand
+
+\usepackage[bottom]{footmisc}	% Fussnotenposition
+\usepackage{chngcntr}
+
+
+\ifthenelse{\equal{\Schriftart}{serifenlos}}{
+	\usepackage[scaled=0.92]{helvet}
+	\renewcommand{\familydefault}{phv}
+}{}
+
+

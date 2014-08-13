@@ -1,0 +1,46 @@
+% Inhaltsverzeichnislayout
+\setcounter{tocdepth}{3} % 3 Gliederungsebenen im Inhaltsverzeichnis
+
+% Text des Labels beginnt im Abstand von x.xem vom linken Rand
+\titlecontents{chapter}[1.0em]{%
+}{% Nummerierung vom Textbeginn um x.xem nach links verschieben
+\contentslabel{1.0em}
+}{%
+}{% Abstand der Zeichen hinter Kapitelname + Seitenangabe
+\titlerule*[0.7725pc]{.}\contentspage
+}
+
+% Sections
+% Text des Labels beginnt im Abstand von x.xem vom linken Rand
+\titlecontents{section}[3.133em]{%
+}{% Nummerierung vom Textbeginn um x.xem nach links verschieben
+\contentslabel{1.809em}
+}{%
+}{% Abstand der Zeichen hinter Kapitelname + Seitenangabe
+\titlerule*[0.7725pc]{.}\contentspage
+}
+
+% Subsections
+\titlecontents{subsection}[6.067em]{%
+%\addvspace{-0.5pc}
+}{% Nummerierung vom Textbeginn um x.xem nach links schieben
+\contentslabel{2.605em}
+}{% Nach dem Label
+}{% Abstand der Zeichen hinter Kapitelname + Seitenangabe
+\titlerule*[0.7725pc]{.}\contentspage
+}
+
+% Zu Testzwecken: Naechste Zeile in vorherige Zeile schieben
+%\addvspace{-1.941pc}\color{red}
+
+
+% Abbildungs- und Tabellenverzeichnis Formatierung
+\makeatletter
+\renewcommand*{\l@figure}{\@dottedtocline{1}{0.0em}{2.5em}}
+\renewcommand*{\l@table}{\@dottedtocline{1}{0.0em}{2.5em}}
+\makeatother
+
+% Abstand zwischen Ueberschriften und dem ersten Eintrag der toc, lof, lot 
+\setlength{\cftaftertoctitleskip}{3.85em}
+\setlength{\cftafterloftitleskip}{3.85em}
+\setlength{\cftafterlottitleskip}{3.85em}

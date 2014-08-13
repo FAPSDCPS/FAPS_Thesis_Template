@@ -1,0 +1,190 @@
+\documentclass[12pt,a4paper,notitlepage,fleqn,twoside]{book}		% Zweiseitiger Druck
+%\documentclass[12pt,a4paper,notitlepage,fleqn,oneside]{book}		% Einseitiger Druck
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Bitte Ueberpruefen!!!	                                                                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Ein- oder zweiseitiger Druck - Documentclass oben entsprechend anpassen!
+%\newcommand{\Drucklayout}{Einseitig}
+\newcommand{\Drucklayout}{Zweiseitig}
+
+% Fuer serifenlose Schrift folgendes einkommentieren
+%\newcommand{\Schriftart}{serifenlos}
+\newcommand{\Schriftart}{LaTeX-Standard}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Packages, eigene Makros und Formatdefinitionen                                                 %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\include{Packages}			% Notwendige Packete
+	\include{Makros}			% Selbstdefinierte Befehle
+	\include{Format}			% Allgemeines Format der Arbeit
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Titel, Art der Arbeit,Bearbeiter und Abgabedatum                                               %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\newcommand{\TITEL}{Titel der Arbeit, welcher über zwei Zeilen gehen sollte}
+	\newcommand{\ARBEIT}{Diplomarbeit}
+	\newcommand{\STUDIENGANG}{Elektrotechnik-Elektronik-Informationstechnik}
+	\newcommand{\NAME}{Vorname Nachname}
+	\newcommand{\MATRNR}{123456789}
+	\newcommand{\BEARBEITUNGSZEIT}{x}			% in Monaten
+	\newcommand{\ENDE}{01.07.2012}
+	\newcommand{\TITELBILD}{StudArbeitenTitelbildVorlage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Bitte Ueberpruefen!!!	                                                                       %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Pfad der Bilder
+\graphicspath{{./Bilder/}}
+
+% Nur Abkuerzungsverzeichnis (bzw. danach Symbolverzeichnis)
+\newcommand{\Verzeichnisse}{AbkuerzungSymbol}
+
+% Nur Symbolverzeichnis
+%\newcommand{\Verzeichnisse}{Symbol}
+
+% Lebenslauf
+\newcommand{\Lebenslauf}{noCV}	% kein Lebenslauf notwendig
+%\newcommand{\Lebenslauf}{CV}		% Lebenslauf am Ende der Arbeit
+
+
+% TODO: joba auskommentiert da Probleme beim auto-build
+% TODO: ML funktioniert unter TeXnicCenter 2.02 Stable (64 bit)
+% Einstellungen fuer Hyperlinks usw. 
+\ifthenelse{\equal{\Drucklayout}{Zweiseitig}}{
+	\hypersetup{
+		hidelinks,
+		pdfdisplaydoctitle=true,
+		pdfstartview={Fit},
+		pdfpagelayout=TwoPageRight,
+		pdfinfo={
+			Title={\TITEL},
+			Author={\NAME},
+			Subject={\ARBEIT}
+		}
+	}
+}{
+	\ifthenelse{\equal{\Drucklayout}{Einseitig}}{
+		\hypersetup{
+			hidelinks,
+			pdfdisplaydoctitle=true,
+			pdfstartview={Fit},
+			pdfpagelayout=SinglePage,
+			pdfinfo={
+				Title={\TITEL},
+				Author={\NAME},
+				Subject={\ARBEIT}
+			}
+		}
+	}{}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Abkuerzungen				                                                                  %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Abkuerzungen bzw. Verzeichnisse
+\include{Format_Abkuerzungen}
+% Makeindex-Eintrag (Ausgabeprofil - TeXnicCenter):
+%	Pfad:		C:\Program Files (x86)\MiKTeX 2.9\miktex\bin\makeindex.exe
+%	Argumente:	Arbeit.nlo -s nomencl.ist -o Arbeit.nls
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%   Inhalt der Arbeit                                                                              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%   NICHT AENDERN!!!                                                                    %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\input{Deckblatt}			% Deckblatt
+
+	\input{Erklaerung}			% Erklaerung, dass alles alleine gemacht wurde
+
+	\input{Format_Text}			% Textformatierung
+	\input{Format_ToC}			% Layout des Inhaltsverzeichnisses
+	
+	\frontmatter				% Roemische Seitennummerierung
+
+	\vspace*{2.1em}
+	\tableofcontents			% Inhaltsverzeichnis
+	\currentpdfbookmark{Inhaltsverzeichnis}{Inhaltsverzeichnis}	% Lesezeichen fuer Inhaltsverzeichnis
+	
+	\cleardoublepage
+	\vspace*{2.1em}
+	\listoffigures				% Abbildungsverzeichnis
+	
+	\cleardoublepage
+	\vspace*{2.1em}
+	\listoftables				% Tabellenverzeichnis
+
+	\printnomenclature			% Abkürzungs- und Symbolverzeichnis
+
+	\mainmatter				% Arabische Seitennummerierung
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%   MIT INHALT ZU FUELLEN                                                               %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%	Das Einfuegen von Kapiteln erfolgt hier
+%
+
+		\input{1_0_Einleitung}
+
+		\input{2_0_Kapitel}
+
+
+		% Folgender Befehl erzwingt an entsprechender Stelle einen Seitenumbruch
+		% Bei einer Seite bitte ausblenden
+%		\addtocontents{toc}{\protect\newpage}
+
+		\input{3_0_Zusammenfassung_Ausblick}
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%   NICHT AENDERN!!!                                                                    %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\input{Format_Literaturverzeichnis}	% Literaturverzeichnis (BibTeX)	
+	
+	\appendix										% Beginn des Anhangs
+	\input{Format_Anhang}				% Formatierung des Anhangs
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%   MIT INHALT ZU FUELLEN                                                               %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+%	Das Einfuegen des Anhangs erfolgt hier
+%
+
+		\input{Anhang_A}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%   NICHT AENDERN!!!                                                                    %%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\ifthenelse{\equal{\Lebenslauf}{CV}}{
+		\input{Lebenslauf}
+		\currentpdfbookmark{Curriculum Vitae}{Curriculum Vitae}	% Lesezeichen fuer Lebenslauf
+	}{}
+
+
+\end{document}

@@ -1,0 +1,23 @@
+
+% Makros
+\newcommand{\VECSYM}[1]{\boldsymbol{#1}}			% Symbol als Vektor (fett)
+\newcommand{\VEC}[1]{\mathbf{#1}}					% Vektor (fett)
+\newcommand{\sign}[1]{\mbox{sign}\left\{#1\right\}}	% Signum-Funktion
+\newcommand{\intd}{\textnormal{\;d}}				% d bei einem Integral
+\newcommand{\ind}[1]{_\textnormal{#1}}				% konstanter Index in Matheumgebung (nicht kursiv)
+\newcommand{\einheit}[1]{\,\textnormal{#1}}			% Einheit in Matheumgebung (nicht kursiv)
+\newcommand{\const}[1]{\textnormal{#1}}				% Konstante in Matheumgebung (nicht kursiv)
+
+
+% Aufzählungs-Umgebungen
+\newenvironment{einszweidrei}{\begin{enumerate}\renewcommand{\labelenumi}{\arabic{enumi}.}}{\end{enumerate}}
+\newenvironment{iii}{\begin{enumerate}\renewcommand{\labelenumi}{\roman{enumi})}}{\end{enumerate}}
+
+
+% Farben
+\definecolor{dunkelgrau}{rgb}{0.8,0.8,0.8}
+\definecolor{hellgrau}{rgb}{0.9,0.9,0.9}
+
+
+% Rechtsbündige Spalten mit fester Breite
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
